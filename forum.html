@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>StudyLink - Fórum</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f5f7fb;
+}
+
+/* TOPO */
+.topo {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 40px;
+  background: white;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  color: #2563eb;
+}
+
+.menu span {
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+/* TÍTULO */
+.titulo {
+  text-align: center;
+  margin: 40px 0;
+}
+
+/* GRID */
+.forum {
+  max-width: 1000px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+/* CARDS */
+.pergunta {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  transition: 0.3s;
+}
+
+.pergunta:hover {
+  transform: translateY(-5px);
+}
+
+.pergunta h3 {
+  margin: 0;
+  color: #2563eb;
+}
+
+.pergunta p {
+  color: #555;
+}
+
+/* BOTÃO AYLA */
+.btn-ayla {
+  text-align: center;
+  margin: 50px;
+}
+
+.btn-ayla button {
+  padding: 15px 25px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.btn-ayla button:hover {
+  background: #1e40af;
+}
+
+/* AYLA */
+.ayla {
+  max-width: 900px;
+  margin: 40px auto;
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  color: white;
+  padding: 25px;
+  border-radius: 20px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.ayla img {
+  width: 120px;
+  border-radius: 15px;
+}
+
+.chat-area {
+  flex: 1;
+}
+
+.chat-box {
+  max-height: 180px;
+  overflow-y: auto;
+  margin-bottom: 10px;
+}
+
+.chat-box p {
+  margin: 5px 0;
+}
+
+.ayla input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+}
+
+.ayla button {
+  margin-top: 10px;
+  padding: 10px;
+  border: none;
+  background: white;
+  color: #2563eb;
+  border-radius: 10px;
+  cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<!-- TOPO -->
+<div class="topo">
+  <div class="logo">StudyLink</div>
+  <div class="menu">
+    <span>Início</span>
+    <span>Fórum</span>
+    <span>Matérias</span>
+    <span>Mentoria</span>
+  </div>
+</div>
+
+<!-- TÍTULO -->
+<div class="titulo">
+  <h1>Fórum de Dúvidas</h1>
+</div>
+
+<!-- PERGUNTAS -->
+<div class="forum">
+
+  <div class="pergunta">
+    <h3>Como centralizar uma div?</h3>
+    <p>Qual a melhor forma usando CSS?</p>
+  </div>
+
+  <div class="pergunta">
+    <h3>O que é UX e UI?</h3>
+    <p>Qual a diferença entre eles?</p>
+  </div>
+
+  <div class="pergunta">
+    <h3>Como melhorar a logística?</h3>
+    <p>Dicas para otimizar entregas e estoque.</p>
+  </div>
+
+  <div class="pergunta">
+    <h3>O que é HTML?</h3>
+    <p>Para que serve no desenvolvimento web?</p>
+  </div>
+
+  <div class="pergunta">
+    <h3>Como fazer site responsivo?</h3>
+    <p>Meu site não funciona bem no celular.</p>
+  </div>
+
+  <div class="pergunta">
+    <h3>Qual a importância da logística?</h3>
+    <p>Por que ela é tão importante?</p>
+  </div>
+
+</div>
+
+<!-- BOTÃO AYLA -->
+<div class="btn-ayla">
+  <button onclick="abrirAyla()">
+    Não achou o que estava procurando? Fale com a Ayla 
+  </button>
+</div>
+
+<!-- AYLA -->
+<div class="ayla" id="aylaBox" style="display:none;">
+  
+  <img src="img/ayla.png" alt="Ayla">
+
+  <div class="chat-area">
+    <h2>Olá! Eu sou a Ayla</h2>
+
+    <div class="chat-box" id="chat">
+      <p><b>Ayla:</b> Sou especialista em Logística e Web Design. <br>Pode perguntar!</br></p>
+    </div>
+
+    <input id="msg" placeholder="Digite sua dúvida...">
+    <button onclick="talk()">Perguntar</button>
+  </div>
+
+</div>
+
+<script>
+
+  function abrirAyla() {
+    let box = document.getElementById("aylaBox");
+    box.style.display = "flex";
+    box.scrollIntoView({ behavior: "smooth" });
+  }
+  
+  function talk() {
+    let input = document.getElementById("msg");
+    let chat = document.getElementById("chat");
+  
+    let perguntaOriginal = input.value;
+    let pergunta = perguntaOriginal.toLowerCase();
+  
+    let resposta = "";
+  
+    // =========================
+    // 📦 LOGÍSTICA (MELHORADO)
+    // =========================
+    if (
+      pergunta.includes("logística") ||
+      pergunta.includes("suprimento") ||
+      pergunta.includes("cadeia") ||
+      pergunta.includes("estoque") ||
+      pergunta.includes("transporte") ||
+      pergunta.includes("entrega") ||
+      pergunta.includes("distribuição")
+    ) {
+  
+      if (pergunta.includes("cadeia de suprimentos")) {
+        resposta = "A cadeia de suprimentos envolve todas as etapas desde a produção até a entrega do produto ao cliente final.";
+      }
+  
+      else if (pergunta.includes("melhorar") || pergunta.includes("otimizar")) {
+        resposta = "Para melhorar a logística, você pode otimizar rotas, usar tecnologia e organizar melhor o estoque.";
+      }
+  
+      else if (pergunta.includes("estoque")) {
+        resposta = "Controle de estoque é essencial para evitar perdas e garantir que produtos estejam disponíveis quando necessário.";
+      }
+  
+      else if (pergunta.includes("transporte")) {
+        resposta = "O transporte é uma das etapas mais importantes da logística, responsável por levar o produto até o cliente.";
+      }
+  
+      else {
+        resposta = "A logística cuida do planejamento, transporte e armazenamento de produtos.";
+      }
+    }
+  
+    // =========================
+    // 💻 WEB DESIGN (MELHORADO)
+    // =========================
+    else if (
+      pergunta.includes("html") ||
+      pergunta.includes("css") ||
+      pergunta.includes("javascript") ||
+      pergunta.includes("site") ||
+      pergunta.includes("web") ||
+      pergunta.includes("responsivo") ||
+      pergunta.includes("ux") ||
+      pergunta.includes("ui")
+    ) {
+  
+      if (pergunta.includes("html")) {
+        resposta = "HTML é a estrutura base de qualquer site.";
+      }
+  
+      else if (pergunta.includes("css")) {
+        resposta = "CSS é responsável pelo visual e design do site.";
+      }
+  
+      else if (pergunta.includes("javascript")) {
+        resposta = "JavaScript adiciona interatividade ao site.";
+      }
+  
+      else if (pergunta.includes("responsivo")) {
+        resposta = "Um site responsivo se adapta a celulares, tablets e computadores.";
+      }
+  
+      else if (pergunta.includes("ux") || pergunta.includes("ui")) {
+        resposta = "UX é experiência do usuário e UI é a interface visual.";
+      }
+  
+      else {
+        resposta = "Web design envolve criar sites bonitos, funcionais e fáceis de usar.";
+      }
+    }
+  
+    // =========================
+    // 🚫 FORA DO TEMA
+    // =========================
+    else {
+      resposta = "Posso te ajudar com Logística  e Web Design ";
+    }
+  
+    // MOSTRAR CHAT
+    chat.innerHTML += `<p><b>Você:</b> ${perguntaOriginal}</p>`;
+    chat.innerHTML += `<p><b>Ayla:</b> ${resposta}</p>`;
+  
+    input.value = "";
+  }
+  
+  </script>
