@@ -1,141 +1,254 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
 <meta charset="UTF-8">
-<title>StudyLink - Fórum</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Study Community - Fórum</title>
 
 <style>
-body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: #f5f7fb;
+
+/* RESET */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, sans-serif;
+}
+
+body{
+    background:#f5f7fb; /* off white bonito */
 }
 
 /* TOPO */
-.topo {
-  display: flex;
-  justify-content: space-between;
-  padding: 20px 40px;
-  background: white;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+.topo{
+    padding:20px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 }
 
-.logo {
-  font-size: 22px;
-  font-weight: bold;
-  color: #2563eb;
+.logo{
+    font-size:20px;
+    font-weight:bold;
+    color:#3b5bdb;
 }
 
-.menu span {
-  margin-left: 20px;
-  cursor: pointer;
+.menu a{
+    margin-left:20px;
+    text-decoration:none;
+    color:#333;
+    font-size:14px;
+}
+
+/* BANNER */
+.banner{
+    width:100%;
+    height:260px;
+    background:#ddd; /* aqui vai sua imagem */
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+}
+
+.banner img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
 }
 
 /* TÍTULO */
-.titulo {
-  text-align: center;
-  margin: 40px 0;
+.titulo{
+    text-align:center;
+    margin:40px 0 20px;
 }
 
-/* GRID */
-.forum {
-  max-width: 1000px;
-  margin: auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
+.titulo h1{
+    font-size:26px;
 }
 
 /* CARDS */
-.pergunta {
-  background: white;
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-  transition: 0.3s;
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:20px;
 }
 
-.pergunta:hover {
-  transform: translateY(-5px);
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
+    gap:20px;
 }
 
-.pergunta h3 {
-  margin: 0;
-  color: #2563eb;
+.card{
+    background:white;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.05);
+    transition:0.3s;
 }
 
-.pergunta p {
-  color: #555;
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.card h3{
+    color:#3b5bdb;
+    margin-bottom:10px;
+}
+
+.card p{
+    color:#666;
+    font-size:14px;
+    margin-bottom:10px;
+}
+
+.tag{
+    font-size:12px;
+    color:#888;
 }
 
 /* BOTÃO AYLA */
-.btn-ayla {
-  text-align: center;
-  margin: 50px;
+.btn-ayla{
+    display:block;
+    margin:40px auto;
+    padding:12px 25px;
+    border:none;
+    background:#3b5bdb;
+    color:white;
+    border-radius:20px;
+    cursor:pointer;
 }
 
-.btn-ayla button {
-  padding: 15px 25px;
-  background: #2563eb;
-  color: white;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  font-size: 16px;
+/* AYLA (SEM BALÃO FEIO) */
+.ayla{
+    display:none;
+    max-width:900px;
+    margin:30px auto;
+    padding:30px;
+    border-radius:20px;
+    background:linear-gradient(135deg,#3b5bdb,#5f7cff);
+    color:white;
 }
 
-.btn-ayla button:hover {
-  background: #1e40af;
+.ayla-container{
+    display:flex;
+    gap:20px;
+    align-items:flex-start;
 }
 
-/* AYLA */
-.ayla {
-  max-width: 900px;
-  margin: 40px auto;
-  background: linear-gradient(135deg, #2563eb, #1e40af);
-  color: white;
-  padding: 25px;
-  border-radius: 20px;
-  display: flex;
-  gap: 20px;
-  align-items: center;
+.ayla img{
+    width:120px;
+    border-radius:15px;
 }
 
-.ayla img {
-  width: 120px;
-  border-radius: 15px;
+.chat{
+    flex:1;
 }
 
-.chat-area {
-  flex: 1;
+.chat h2{
+    margin-bottom:10px;
 }
 
-.chat-box {
-  max-height: 180px;
-  overflow-y: auto;
-  margin-bottom: 10px;
+.chat-box{
+    background:rgba(255,255,255,0.1);
+    padding:15px;
+    border-radius:10px;
+    height:120px;
+    overflow:auto;
+    margin-bottom:10px;
+    font-size:14px;
 }
 
-.chat-box p {
-  margin: 5px 0;
+input{
+    width:70%;
+    padding:10px;
+    border-radius:10px;
+    border:none;
 }
 
-.ayla input {
-  width: 100%;
-  padding: 10px;
-  border-radius: 10px;
-  border: none;
+button{
+    padding:10px 15px;
+    border:none;
+    border-radius:10px;
+    background:white;
+    cursor:pointer;
+}
+.footer{
+    margin-top:60px;
+    padding:30px 0;
+    text-align:center;
+    background:#ffffff;
 }
 
-.ayla button {
-  margin-top: 10px;
-  padding: 10px;
-  border: none;
-  background: white;
-  color: #2563eb;
-  border-radius: 10px;
-  cursor: pointer;
+.footer-line{
+    width:80%;
+    max-width:900px;
+    height:1px;
+    background:linear-gradient(to right, transparent, #6c63ff, transparent);
+    margin:0 auto 20px;
 }
+
+.footer p{
+    color:#7a7a9d;
+    font-size:14px;
+    letter-spacing:1px;
+}
+.stats {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin: 30px auto;
+    padding: 60px 20px;
+    background: #f8f9fc;
+    border-radius: 20px;
+    max-width: 900px;
+}
+
+/* CAIXAS */
+.stat-box {
+    background: white;
+    border-radius: 20px;
+    padding: 25px;
+    width: 180px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+/* 🔥 HOVER */
+.stat-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+/* BOLINHA DO ÍCONE */
+.icon {
+    width: 60px;
+    height: 60px;
+    background: #eef1ff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    font-size: 22px;
+}
+
+/* NÚMERO */
+.stat-box h2 {
+    color: #4f6cff;
+    font-size: 28px;
+    margin-bottom: 5px;
+}
+
+/* TEXTO */
+.stat-box p {
+    color: #666;
+    font-size: 14px;
+}
+
 </style>
 </head>
 
@@ -143,182 +256,152 @@ body {
 
 <!-- TOPO -->
 <div class="topo">
-  <div class="logo">StudyLink</div>
-  <div class="menu">
-    <span>Início</span>
-    <span>Fórum</span>
-    <span>Matérias</span>
-    <span>Mentoria</span>
-  </div>
+    <div class="logo">Study Community</div>
+    <div class="menu">
+        <a href="#">Início</a>
+        <a href="#">Fórum</a>
+        <a href="#">Matérias</a>
+        <a href="#">Mentoria</a>
+        <a href="#">Perfil</a>
+    </div>
+</div>
+
+<!-- BANNER -->
+<div class="banner">
+    <!-- COLOQUE SUA IMAGEM AQUI -->
+    <img src="img/banner.jpg">
 </div>
 
 <!-- TÍTULO -->
 <div class="titulo">
-  <h1>Fórum de Dúvidas</h1>
+    <h1>Fórum de Dúvidas</h1>
 </div>
 
-<!-- PERGUNTAS -->
-<div class="forum">
+<!-- PERGUNTAS BONITAS -->
+<div class="container">
+    <div class="grid">
 
-  <div class="pergunta">
-    <h3>Como centralizar uma div?</h3>
-    <p>Qual a melhor forma usando CSS?</p>
-  </div>
+        <div class="card">
+            <h3>O que é JavaScript?</h3>
+            <p>Para que serve e como usar na prática?</p>
+            <span class="tag">Web Design</span>
+        </div>
 
-  <div class="pergunta">
-    <h3>O que é UX e UI?</h3>
-    <p>Qual a diferença entre eles?</p>
-  </div>
+        <div class="card">
+            <h3>Como melhorar a logística?</h3>
+            <p>Dicas reais para otimizar processos.</p>
+            <span class="tag">Logística</span>
+        </div>
 
-  <div class="pergunta">
-    <h3>Como melhorar a logística?</h3>
-    <p>Dicas para otimizar entregas e estoque.</p>
-  </div>
+        <div class="card">
+            <h3>Como fazer um site responsivo?</h3>
+            <p>Meu site não funciona no celular.</p>
+            <span class="tag">CSS</span>
+        </div>
 
-  <div class="pergunta">
-    <h3>O que é HTML?</h3>
-    <p>Para que serve no desenvolvimento web?</p>
-  </div>
+        <div class="card">
+            <h3>O que é UX e UI?</h3>
+            <p>Diferença no design.</p>
+            <span class="tag">Design</span>
+        </div>
 
-  <div class="pergunta">
-    <h3>Como fazer site responsivo?</h3>
-    <p>Meu site não funciona bem no celular.</p>
-  </div>
+        <div class="card">
+            <h3>Como usar HTML?</h3>
+            <p>Não entendo a estrutura básica.</p>
+            <span class="tag">HTML</span>
+        </div>
 
-  <div class="pergunta">
-    <h3>Qual a importância da logística?</h3>
-    <p>Por que ela é tão importante?</p>
-  </div>
-
+    </div>
 </div>
 
-<!-- BOTÃO AYLA -->
-<div class="btn-ayla">
-  <button onclick="abrirAyla()">
-    Não achou o que estava procurando? Fale com a Ayla 
-  </button>
-</div>
+<!-- BOTÃO -->
+<button class="btn-ayla" onclick="abrirAyla()">
+Não achou o que estava procurando? Fale com a Ayla
+</button>
 
 <!-- AYLA -->
-<div class="ayla" id="aylaBox" style="display:none;">
-  
-  <img src="img/ayla.png" alt="Ayla">
+<div class="ayla" id="ayla">
+    <div class="ayla-container">
 
-  <div class="chat-area">
-    <h2>Olá! Eu sou a Ayla</h2>
+        <!-- FOTO -->
+        <img src="img/ayla.png">
 
-    <div class="chat-box" id="chat">
-      <p><b>Ayla:</b> Sou especialista em Logística e Web Design. <br>Pode perguntar!</br></p>
+        <div class="chat">
+            <h2>Olá! Eu sou a Ayla</h2>
+
+            <div class="chat-box" id="chat">
+                Ayla: Posso te ajudar com qualquer dúvida 
+            </div>
+
+            <input id="pergunta" placeholder="Digite sua dúvida...">
+            <button onclick="responder()">Perguntar</button>
+        </div>
+
     </div>
+    
+</div>
+<section class="stats">
 
-    <input id="msg" placeholder="Digite sua dúvida...">
-    <button onclick="talk()">Perguntar</button>
+  <div class="stat-box">
+      <div class="icon"></div>
+      <h2>1000+</h2>
+      <p>Dúvidas resolvidas</p>
   </div>
 
-</div>
+  <div class="stat-box">
+      <div class="icon"></div>
+      <h2>500+</h2>
+      <p>Alunos ativos</p>
+  </div>
 
+  <div class="stat-box">
+      <div class="icon"></div>
+      <h2>24h</h2>
+      <p>Suporte inteligente</p>
+  </div>
+
+</section>
 <script>
 
-  function abrirAyla() {
-    let box = document.getElementById("aylaBox");
-    box.style.display = "flex";
-    box.scrollIntoView({ behavior: "smooth" });
-  }
-  
-  function talk() {
-    let input = document.getElementById("msg");
+function abrirAyla(){
+    document.getElementById("ayla").style.display="block";
+}
+
+/* SIMULAÇÃO INTELIGENTE */
+function responder(){
+    let pergunta = document.getElementById("pergunta").value.toLowerCase();
     let chat = document.getElementById("chat");
-  
-    let perguntaOriginal = input.value;
-    let pergunta = perguntaOriginal.toLowerCase();
-  
-    let resposta = "";
-  
-    // =========================
-    // 📦 LOGÍSTICA (MELHORADO)
-    // =========================
-    if (
-      pergunta.includes("logística") ||
-      pergunta.includes("suprimento") ||
-      pergunta.includes("cadeia") ||
-      pergunta.includes("estoque") ||
-      pergunta.includes("transporte") ||
-      pergunta.includes("entrega") ||
-      pergunta.includes("distribuição")
-    ) {
-  
-      if (pergunta.includes("cadeia de suprimentos")) {
-        resposta = "A cadeia de suprimentos envolve todas as etapas desde a produção até a entrega do produto ao cliente final.";
-      }
-  
-      else if (pergunta.includes("melhorar") || pergunta.includes("otimizar")) {
-        resposta = "Para melhorar a logística, você pode otimizar rotas, usar tecnologia e organizar melhor o estoque.";
-      }
-  
-      else if (pergunta.includes("estoque")) {
-        resposta = "Controle de estoque é essencial para evitar perdas e garantir que produtos estejam disponíveis quando necessário.";
-      }
-  
-      else if (pergunta.includes("transporte")) {
-        resposta = "O transporte é uma das etapas mais importantes da logística, responsável por levar o produto até o cliente.";
-      }
-  
-      else {
-        resposta = "A logística cuida do planejamento, transporte e armazenamento de produtos.";
-      }
+
+    chat.innerHTML += "<br><b>Você:</b> " + pergunta;
+
+    let resposta = "Ainda estou aprendendo ";
+
+    if(pergunta.includes("javascript")){
+        resposta = "JavaScript é a linguagem que dá vida ao site, permitindo interações.";
     }
-  
-    // =========================
-    // 💻 WEB DESIGN (MELHORADO)
-    // =========================
-    else if (
-      pergunta.includes("html") ||
-      pergunta.includes("css") ||
-      pergunta.includes("javascript") ||
-      pergunta.includes("site") ||
-      pergunta.includes("web") ||
-      pergunta.includes("responsivo") ||
-      pergunta.includes("ux") ||
-      pergunta.includes("ui")
-    ) {
-  
-      if (pergunta.includes("html")) {
+    else if(pergunta.includes("html")){
         resposta = "HTML é a estrutura base de qualquer site.";
-      }
-  
-      else if (pergunta.includes("css")) {
-        resposta = "CSS é responsável pelo visual e design do site.";
-      }
-  
-      else if (pergunta.includes("javascript")) {
-        resposta = "JavaScript adiciona interatividade ao site.";
-      }
-  
-      else if (pergunta.includes("responsivo")) {
-        resposta = "Um site responsivo se adapta a celulares, tablets e computadores.";
-      }
-  
-      else if (pergunta.includes("ux") || pergunta.includes("ui")) {
-        resposta = "UX é experiência do usuário e UI é a interface visual.";
-      }
-  
-      else {
-        resposta = "Web design envolve criar sites bonitos, funcionais e fáceis de usar.";
-      }
     }
-  
-    // =========================
-    // 🚫 FORA DO TEMA
-    // =========================
-    else {
-      resposta = "Posso te ajudar com Logística  e Web Design ";
+    else if(pergunta.includes("css")){
+        resposta = "CSS serve para estilizar o site, deixar bonito.";
     }
-  
-    // MOSTRAR CHAT
-    chat.innerHTML += `<p><b>Você:</b> ${perguntaOriginal}</p>`;
-    chat.innerHTML += `<p><b>Ayla:</b> ${resposta}</p>`;
-  
-    input.value = "";
-  }
-  
-  </script>
+    else if(pergunta.includes("logistica")){
+        resposta = "Logística envolve planejamento, transporte e distribuição eficiente.";
+    }
+    else if(pergunta.includes("responsivo")){
+        resposta = "Use media queries e layout flexível.";
+    }
+
+    chat.innerHTML += "<br><b>Ayla:</b> " + resposta;
+
+    document.getElementById("pergunta").value="";
+}
+
+</script>
+<footer class="footer">
+  <div class="footer-line"></div>
+  <p>Study Community ✦ Aprenda, compartilhe e evolua</p>
+</footer
+
+</body>
+</html>
