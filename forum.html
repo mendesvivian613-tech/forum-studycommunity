@@ -16,7 +16,7 @@
 }
 
 body{
-    background:#f5f7fb; /* off white bonito */
+    background:#f5f7fb;
 }
 
 /* TOPO */
@@ -37,34 +37,45 @@ body{
     margin-left:20px;
     text-decoration:none;
     color:#333;
-    font-size:14px;
 }
 
-/* BANNER */
-.banner{
-    width:100%;
-    height:260px;
-    background:#ddd; /* aqui vai sua imagem */
+/* 🔥 BANNER */
+.apple-banner{
     display:flex;
-    align-items:center;
-    justify-content:center;
-    overflow:hidden;
+    justify-content:space-between;
+    padding:60px;
+    border-radius:30px;
+    background:linear-gradient(135deg,#2768bd,#393bd4);
+    color:white;
+    margin:40px auto;
+    max-width:1100px;
 }
 
-.banner img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
+.banner-text h1{
+    font-size:42px;
 }
 
-/* TÍTULO */
+.banner-text p{
+    margin:15px 0;
+}
+
+.btn-banner{
+    padding:12px 25px;
+    border:none;
+    border-radius:10px;
+    background:white;
+    color:#3b5bdb;
+    cursor:pointer;
+}
+
+.btn-banner:hover{
+    transform:scale(1.05);
+}
+
+/* TITULO */
 .titulo{
     text-align:center;
     margin:40px 0 20px;
-}
-
-.titulo h1{
-    font-size:26px;
 }
 
 /* CARDS */
@@ -84,28 +95,15 @@ body{
     background:white;
     padding:20px;
     border-radius:12px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.05);
     transition:0.3s;
+    cursor:pointer;
 }
 
 .card:hover{
-    transform:translateY(-5px);
-}
-
-.card h3{
-    color:#3b5bdb;
-    margin-bottom:10px;
-}
-
-.card p{
-    color:#666;
-    font-size:14px;
-    margin-bottom:10px;
-}
-
-.tag{
-    font-size:12px;
-    color:#888;
+    transform:translateY(-8px);
+    box-shadow:0 20px 40px rgba(0,0,0,0.15);
+    background:#3b5bdb;
+    color:white;
 }
 
 /* BOTÃO AYLA */
@@ -120,61 +118,113 @@ body{
     cursor:pointer;
 }
 
-/* AYLA (SEM BALÃO FEIO) */
+/* AYLA */
 .ayla{
     display:none;
-    max-width:900px;
+    max-width:700px;
     margin:30px auto;
-    padding:30px;
+    padding:25px;
     border-radius:20px;
     background:linear-gradient(135deg,#3b5bdb,#5f7cff);
     color:white;
 }
 
-.ayla-container{
+/* HEADER AYLA */
+.ayla-header{
     display:flex;
-    gap:20px;
-    align-items:flex-start;
+    align-items:center;
+    gap:15px;
+    margin-bottom:15px;
 }
 
-.ayla img{
-    width:120px;
-    border-radius:15px;
+.ayla-foto{
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    object-fit:cover;
 }
 
-.chat{
-    flex:1;
-}
-
-.chat h2{
-    margin-bottom:10px;
-}
-
+/* CHAT */
 .chat-box{
     background:rgba(255,255,255,0.1);
     padding:15px;
     border-radius:10px;
-    height:120px;
+    height:150px;
     overflow:auto;
     margin-bottom:10px;
-    font-size:14px;
 }
 
-input{
-    width:70%;
+/* INPUT */
+.chat-input{
+    display:flex;
+    gap:10px;
+}
+
+.chat-input input{
+    flex:1;
     padding:10px;
     border-radius:10px;
     border:none;
+    color: #393bd4;
 }
 
-button{
-    padding:10px 15px;
+.chat-input button{
+    padding:10px;
     border:none;
     border-radius:10px;
     background:white;
-    cursor:pointer;
+    color:#3b5bdb;
 }
+
+/* 🔥 STATS */
+.stats{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    margin:60px;
+}
+
+.stat-box{
+    background:rgba(255,255,255,0.25);
+    backdrop-filter:blur(10px);
+    border-radius:50px;
+    padding:25px;
+    width:180px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+    transition:0.3s;
+}
+
+.stat-box::before{
+    content:"";
+    position:absolute;
+    width:200%;
+    height:200%;
+    top:-100%;
+    left:-100%;
+    background:linear-gradient(120deg, transparent, rgba(255,255,255,0.6), transparent);
+}
+
+.stat-box:hover::before{
+    animation:brilho 1s;
+}
+
+@keyframes brilho{
+    from{top:-100%; left:-100%;}
+    to{top:100%; left:100%;}
+}
+
+.stat-box:hover{
+    transform:translateY(-10px);
+}
+
+/* FOOTER */
 .footer{
+    text-align:center;
+    margin:40px;
+}
+footer{
     margin-top:60px;
     padding:30px 0;
     text-align:center;
@@ -193,60 +243,6 @@ button{
     color:#7a7a9d;
     font-size:14px;
     letter-spacing:1px;
-}
-.stats {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    margin: 30px auto;
-    padding: 60px 20px;
-    background: #f8f9fc;
-    border-radius: 20px;
-    max-width: 900px;
-}
-
-/* CAIXAS */
-.stat-box {
-    background: white;
-    border-radius: 20px;
-    padding: 25px;
-    width: 180px;
-    text-align: center;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
-
-/* 🔥 HOVER */
-.stat-box:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-}
-
-/* BOLINHA DO ÍCONE */
-.icon {
-    width: 60px;
-    height: 60px;
-    background: #eef1ff;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 15px;
-    font-size: 22px;
-}
-
-/* NÚMERO */
-.stat-box h2 {
-    color: #4f6cff;
-    font-size: 28px;
-    margin-bottom: 5px;
-}
-
-/* TEXTO */
-.stat-box p {
-    color: #666;
-    font-size: 14px;
 }
 
 </style>
@@ -267,129 +263,122 @@ button{
 </div>
 
 <!-- BANNER -->
-<div class="banner">
-    <!-- COLOQUE SUA IMAGEM AQUI -->
-    <img src="img/banner.jpg">
+<div class="apple-banner">
+    <div class="banner-text">
+        <h1>Aprenda sem limites.</h1>
+        <p>Conecte-se, tire dúvidas e evolua com o Study Community.</p>
+        <button class="btn-banner" onclick="scrollForum()">Explorar Fórum</button>
+    </div>
 </div>
 
-<!-- TÍTULO -->
+<!-- TITULO -->
 <div class="titulo">
     <h1>Fórum de Dúvidas</h1>
 </div>
 
-<!-- PERGUNTAS BONITAS -->
-<div class="container">
-    <div class="grid">
+<!-- FORUM -->
+<div class="container" id="forum">
+<div class="grid">
 
-        <div class="card">
-            <h3>O que é JavaScript?</h3>
-            <p>Para que serve e como usar na prática?</p>
-            <span class="tag">Web Design</span>
-        </div>
+<!-- WEB -->
+<div class="card"><h3>O que é JavaScript?</h3></div>
+<div class="card"><h3>Qual a diferença entre HTML, CSS e JS?</h3></div>
+<div class="card"><h3>Como fazer site responsivo?</h3></div>
+<div class="card"><h3>O que é UX e UI?</h3></div>
+<div class="card"><h3>Como melhorar performance do site?</h3></div>
+<div class="card"><h3>Front-end vs Back-end?</h3></div>
 
-        <div class="card">
-            <h3>Como melhorar a logística?</h3>
-            <p>Dicas reais para otimizar processos.</p>
-            <span class="tag">Logística</span>
-        </div>
+<!-- LOGÍSTICA -->
+<div class="card"><h3>O que é logística?</h3></div>
+<div class="card"><h3>Como funciona o estoque?</h3></div>
+<div class="card"><h3>O que é cadeia de suprimentos?</h3></div>
+<div class="card"><h3>Como reduzir custos no transporte?</h3></div>
 
-        <div class="card">
-            <h3>Como fazer um site responsivo?</h3>
-            <p>Meu site não funciona no celular.</p>
-            <span class="tag">CSS</span>
-        </div>
-
-        <div class="card">
-            <h3>O que é UX e UI?</h3>
-            <p>Diferença no design.</p>
-            <span class="tag">Design</span>
-        </div>
-
-        <div class="card">
-            <h3>Como usar HTML?</h3>
-            <p>Não entendo a estrutura básica.</p>
-            <span class="tag">HTML</span>
-        </div>
-
-    </div>
+</div>
 </div>
 
-<!-- BOTÃO -->
+<!-- BOTÃO AYLA -->
 <button class="btn-ayla" onclick="abrirAyla()">
 Não achou o que estava procurando? Fale com a Ayla
 </button>
 
 <!-- AYLA -->
 <div class="ayla" id="ayla">
-    <div class="ayla-container">
 
-        <!-- FOTO -->
-        <img src="img/ayla.png">
-
-        <div class="chat">
-            <h2>Olá! Eu sou a Ayla</h2>
-
-            <div class="chat-box" id="chat">
-                Ayla: Posso te ajudar com qualquer dúvida 
-            </div>
-
-            <input id="pergunta" placeholder="Digite sua dúvida...">
-            <button onclick="responder()">Perguntar</button>
-        </div>
-
-    </div>
-    
+<div class="ayla-header">
+    <img src="img/ayla.png" class="ayla-foto">
+    <h2>Ayla 💙</h2>
 </div>
-<section class="stats">
 
-  <div class="stat-box">
-      <div class="icon"></div>
-      <h2>1000+</h2>
-      <p>Dúvidas resolvidas</p>
-  </div>
+<div class="chat-box" id="chat">
+Ayla: Me pergunte sobre web ou logística.
+</div>
 
-  <div class="stat-box">
-      <div class="icon"></div>
-      <h2>500+</h2>
-      <p>Alunos ativos</p>
-  </div>
+<div class="chat-input">
+<input id="pergunta" placeholder="Digite sua dúvida...">
+<button onclick="responder()">Enviar</button>
+</div>
 
-  <div class="stat-box">
-      <div class="icon"></div>
-      <h2>24h</h2>
-      <p>Suporte inteligente</p>
-  </div>
+</div>
 
-</section>
+<!-- STATS -->
+<div class="stats">
+<div class="stat-box"><h2>1000+</h2><p>Dúvidas resolvidas</p></div>
+<div class="stat-box"><h2>500+</h2><p>Alunos ativos</p></div>
+<div class="stat-box"><h2>24h</h2><p>Suporte</p></div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-line"></div>
+    <p>Study Community ✦ Aprenda, compartilhe e evolua</p>
+</footer>
+
 <script>
+
+function scrollForum(){
+    document.getElementById("forum").scrollIntoView({behavior:"smooth"});
+}
 
 function abrirAyla(){
     document.getElementById("ayla").style.display="block";
 }
 
-/* SIMULAÇÃO INTELIGENTE */
+/* 🔥 AYLA INTELIGENTE */
 function responder(){
     let pergunta = document.getElementById("pergunta").value.toLowerCase();
     let chat = document.getElementById("chat");
 
     chat.innerHTML += "<br><b>Você:</b> " + pergunta;
 
-    let resposta = "Ainda estou aprendendo ";
+    let resposta = "Não entendi muito bem 😅 tenta explicar melhor.";
 
     if(pergunta.includes("javascript")){
-        resposta = "JavaScript é a linguagem que dá vida ao site, permitindo interações.";
+        resposta = "JavaScript adiciona interatividade ao site (botões, animações, etc).";
     }
     else if(pergunta.includes("html")){
-        resposta = "HTML é a estrutura base de qualquer site.";
+        resposta = "HTML é a estrutura base do site.";
     }
     else if(pergunta.includes("css")){
-        resposta = "CSS serve para estilizar o site, deixar bonito.";
-    }
-    else if(pergunta.includes("logistica")){
-        resposta = "Logística envolve planejamento, transporte e distribuição eficiente.";
+        resposta = "CSS cuida do design e aparência.";
     }
     else if(pergunta.includes("responsivo")){
-        resposta = "Use media queries e layout flexível.";
+        resposta = "Use media queries e layouts flexíveis.";
+    }
+    else if(pergunta.includes("ux")){
+        resposta = "UX é a experiência do usuário.";
+    }
+    else if(pergunta.includes("ui")){
+        resposta = "UI é a parte visual.";
+    }
+    else if(pergunta.includes("logistica")){
+        resposta = "Logística é o planejamento e transporte de produtos.";
+    }
+    else if(pergunta.includes("estoque")){
+        resposta = "Estoque é o controle de mercadorias.";
+    }
+    else if(pergunta.includes("cadeia")){
+        resposta = "Cadeia de suprimentos envolve produção até entrega.";
     }
 
     chat.innerHTML += "<br><b>Ayla:</b> " + resposta;
@@ -398,10 +387,6 @@ function responder(){
 }
 
 </script>
-<footer class="footer">
-  <div class="footer-line"></div>
-  <p>Study Community ✦ Aprenda, compartilhe e evolua</p>
-</footer
 
 </body>
 </html>
