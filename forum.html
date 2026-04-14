@@ -1,9 +1,9 @@
-<!DOCTYPE html>
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Study Community - Fórum</title>
+<link rel="icon" type="image/png" href= "img/favicon.jpg">
 
 <style>
 
@@ -12,7 +12,7 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins',sans-serif;
 }
 
 body{
@@ -38,38 +38,91 @@ body{
     text-decoration:none;
     color:#333;
 }
+.menu a:hover{
+  background:none;      /* tira a bolha */
+  color:#3b5bdb;        /* deixa só o texto azul */
+}
+.menu a{
+  transition:0.3s;
+}
 
-/* 🔥 BANNER */
-.apple-banner{
+.menu a:hover{
+  color:#3b5bdb;
+}
+
+.banner-forum{
     display:flex;
     justify-content:space-between;
-    padding:60px;
+    align-items:center;
+
+    padding:70px;
     border-radius:30px;
-    background:linear-gradient(135deg,#2768bd,#393bd4);
+
+    background:linear-gradient(135deg,#1e3a8a,#2563eb,#3b82f6);
     color:white;
+
     margin:40px auto;
-    max-width:1100px;
+    max-width:1150px;
+
+    position:relative;
+    overflow:hidden;
 }
 
-.banner-text h1{
-    font-size:42px;
+/* brilho suave */
+.banner-forum::after{
+    content:"";
+    position:absolute;
+    width:400px;
+    height:400px;
+    background:rgba(255,255,255,0.1);
+    filter:blur(120px);
+    top:-100px;
+    right:-100px;
 }
 
-.banner-text p{
-    margin:15px 0;
+/* TEXTO */
+.forum-left{
+    max-width:500px;
 }
 
-.btn-banner{
-    padding:12px 25px;
-    border:none;
-    border-radius:10px;
+.forum-left h1{
+    font-size:44px;
+    margin-bottom:15px;
+}
+
+.forum-left p{
+    margin-bottom:25px;
+    opacity:0.9;
+}
+
+/* PERGUNTAS */
+.forum-topics{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.forum-topics div{
+    background:rgba(255,255,255,0.1);
+    padding:12px 16px;
+    border-radius:12px;
+    font-size:14px;
+
+    backdrop-filter:blur(10px);
+    transition:.3s;
+}
+
+.forum-topics div:hover{
     background:white;
-    color:#3b5bdb;
-    cursor:pointer;
+    color:#2563eb;
+    transform:translateX(6px);
 }
 
-.btn-banner:hover{
-    transform:scale(1.05);
+/* IMAGEM */
+.forum-right img{
+    width:340px;
+    border-radius:25px;
+    box-shadow:0 30px 60px rgba(0,0,0,0.3);
 }
 
 /* TITULO */
@@ -244,6 +297,26 @@ footer{
     font-size:14px;
     letter-spacing:1px;
 }
+.footer{
+    margin-top:60px;
+    padding:30px 0;
+    text-align:center;
+    background:#ffffff;
+}
+
+.footer-line{
+    width:80%;
+    max-width:900px;
+    height:1px;
+    background:linear-gradient(to right, transparent, #6c63ff, transparent);
+    margin:0 auto 20px;
+}
+
+.footer p{
+    color:#7a7a9d;
+    font-size:14px;
+    letter-spacing:1px;
+}
 
 </style>
 </head>
@@ -258,18 +331,31 @@ footer{
         <a href="#">Fórum</a>
         <a href="#">Matérias</a>
         <a href="#">Mentoria</a>
+        <a href="missao.html">Missão</a>
         <a href="#">Perfil</a>
     </div>
 </div>
 
 <!-- BANNER -->
-<div class="apple-banner">
-    <div class="banner-text">
-        <h1>Aprenda sem limites.</h1>
-        <p>Conecte-se, tire dúvidas e evolua com o Study Community.</p>
-        <button class="btn-banner" onclick="scrollForum()">Explorar Fórum</button>
+<div class="banner-forum">
+
+    <div class="forum-left">
+      <h1>Suas dúvidas têm resposta.</h1>
+      <p>Conecte-se com estudantes e encontre soluções reais para seus problemas.</p>
+  
+      <div class="forum-topics">
+        <div>“Por que meu JavaScript não funciona?”</div>
+        <div>“Como melhorar o controle de estoque?”</div>
+        <div>“Meu site não funciona no celular, e agora?”</div>
+        <div>“Como reduzir custos logísticos?”</div>
+      </div>
+  
     </div>
-</div>
+  
+    <div class="forum-right">
+    </div>
+  
+  </div>
 
 <!-- TITULO -->
 <div class="titulo">
@@ -385,6 +471,7 @@ function responder(){
 
     document.getElementById("pergunta").value="";
 }
+
 
 </script>
 
