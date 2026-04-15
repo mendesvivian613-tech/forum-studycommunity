@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
@@ -317,6 +318,104 @@ footer{
     font-size:14px;
     letter-spacing:1px;
 }
+.resposta{
+    margin-top:10px;
+    font-size:13px;
+
+    opacity:0;
+    max-height:0;
+
+    overflow:hidden;
+
+    transition:0.4s;
+}
+
+/* 🔥 MOSTRAR AO PASSAR O MOUSE */
+.card:hover .resposta{
+    opacity:1;
+    max-height:100px;
+}
+
+/* deixa mais bonito */
+.card:hover .resposta{
+    color:#e0e7ff;
+}
+/* SEÇÃO */
+.depoimentos, .professores{
+    max-width:1100px;
+    margin:80px auto;
+    padding:20px;
+}
+
+/* TITULO */
+.titulo-depoimentos{
+    text-align:center;
+    font-size:28px;
+    margin-bottom:40px;
+    color:#1e3a8a;
+}
+
+/* GRID */
+.depoimentos-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+/* CARD */
+.dep-card{
+    background:rgba(255,255,255,0.7);
+    backdrop-filter:blur(15px);
+    padding:25px;
+    border-radius:20px;
+
+    box-shadow:0 20px 50px rgba(0,0,0,0.08);
+
+    transition:0.4s;
+    cursor:pointer;
+}
+
+/* HOVER APPLE */
+.dep-card:hover{
+    transform:translateY(-10px) scale(1.02);
+    box-shadow:0 30px 70px rgba(0,0,0,0.15);
+}
+
+/* TEXTO */
+.dep-card p{
+    font-size:14px;
+    margin-bottom:20px;
+    line-height:1.5;
+}
+
+/* USER */
+.dep-user{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.dep-user img{
+    width:45px;
+    height:45px;
+    border-radius:50%;
+}
+
+/* TEXTO USER */
+.dep-user span{
+    font-size:12px;
+    opacity:0.6;
+}
+
+/* PROFESSORES DIFERENTE */
+.prof{
+    background:linear-gradient(135deg,#2563eb,#3b82f6);
+    color:white;
+}
+
+.prof span{
+    color:#e0e7ff;
+}
 
 </style>
 </head>
@@ -366,20 +465,50 @@ footer{
 <div class="container" id="forum">
 <div class="grid">
 
-<!-- WEB -->
-<div class="card"><h3>O que é JavaScript?</h3></div>
-<div class="card"><h3>Qual a diferença entre HTML, CSS e JS?</h3></div>
-<div class="card"><h3>Como fazer site responsivo?</h3></div>
-<div class="card"><h3>O que é UX e UI?</h3></div>
-<div class="card"><h3>Como melhorar performance do site?</h3></div>
-<div class="card"><h3>Front-end vs Back-end?</h3></div>
-
-<!-- LOGÍSTICA -->
-<div class="card"><h3>O que é logística?</h3></div>
-<div class="card"><h3>Como funciona o estoque?</h3></div>
-<div class="card"><h3>O que é cadeia de suprimentos?</h3></div>
-<div class="card"><h3>Como reduzir custos no transporte?</h3></div>
-
+    <div class="card">
+        <h3>Qual a diferença entre HTML, CSS e JS?</h3>
+        <p class="resposta">HTML estrutura, CSS estiliza e JavaScript adiciona interatividade.</p>
+    </div>
+    
+    <div class="card">
+        <h3>Como fazer site responsivo?</h3>
+        <p class="resposta">Use media queries e layouts flexíveis como flexbox.</p>
+    </div>
+    
+    <div class="card">
+        <h3>O que é UX e UI?</h3>
+        <p class="resposta">UX é experiência do usuário e UI é o design visual.</p>
+    </div>
+    
+    <div class="card">
+        <h3>Como melhorar performance do site?</h3>
+        <p class="resposta">Otimize imagens, use menos scripts e carregamento rápido.</p>
+    </div>
+    
+    <div class="card">
+        <h3>Front-end vs Back-end?</h3>
+        <p class="resposta">Front é o que o usuário vê, back é o funcionamento interno.</p>
+    </div>
+    
+    <div class="card">
+        <h3>O que é logística?</h3>
+        <p class="resposta">Logística envolve transporte, armazenamento e distribuição.</p>
+    </div>
+    
+    <div class="card">
+        <h3>Como funciona o estoque?</h3>
+        <p class="resposta">Controle de entrada e saída de produtos.</p>
+    </div>
+    
+    <div class="card">
+        <h3>O que é cadeia de suprimentos?</h3>
+        <p class="resposta">Processo desde produção até entrega ao cliente.</p>
+    </div>
+    
+    <div class="card">
+        <h3>Como reduzir custos no transporte?</h3>
+        <p class="resposta">Otimize rotas e reduza desperdícios.</p>
+    </div>
 </div>
 </div>
 
@@ -406,6 +535,137 @@ Ayla: Me pergunte sobre web ou logística.
 </div>
 
 </div>
+<!-- DEPOIMENTOS ALUNOS -->
+<section class="depoimentos">
+
+    <h2 class="titulo-depoimentos">
+      Milhares de estudantes já evoluíram com o Study Community.
+    </h2>
+  
+    <div class="depoimentos-grid">
+  
+      <div class="dep-card">
+        <p>“Eu pensava em desistir várias vezes, porque parecia que todo mundo entendia e eu não.
+            Aqui eu percebi que cada pessoa tem seu tempo, e que errar faz parte. As explicações são muito mais diretas e humanas.
+            Hoje eu me sinto muito mais segura e até ajudo outros colegas.”</p>
+        <div class="dep-user">
+          <img src="https://i.pravatar.cc/100?img=5">
+          <div>
+            <b>Juliana Rocha</b>
+            <span>Front-end</span>
+          </div>
+        </div>
+      </div>
+  
+    
+      </div>
+  
+      <div class="dep-card">
+        <p>“Antes eu travava muito em programação, principalmente em JavaScript. Eu via os códigos e simplesmente não entendia nada.
+            Com as explicações e ajuda da plataforma, fui evoluindo passo a passo. Hoje já consigo montar meus próprios projetos e entender onde estou errando. Isso mudou totalmente minha visão sobre tecnologia.”</p>
+        <div class="dep-user">
+          <img src="https://i.pravatar.cc/100?img=7">
+          <div>
+            <b>Bruno Costa</b>
+            <span>Web Design</span>
+          </div>
+        </div>
+      </div>
+  
+      <div class="dep-card">
+        <p>“O que mais me ajudou foi a parte prática. Não é só teoria, você realmente aprende fazendo.
+            Eu melhorei minhas notas, mas mais importante que isso: comecei a gostar de estudar.
+            Nunca pensei que fosse dizer isso, mas estudar deixou de ser um peso pra mim.”</p>
+        <div class="dep-user">
+          <img src="https://i.pravatar.cc/100?img=8">
+          <div>
+            <b>Lucca Mendes</b>
+            <span>Estudante</span>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  </section>
+  
+  <!-- DEPOIMENTOS PROFESSORES -->
+  <section class="professores">
+  
+    <h2 class="titulo-depoimentos">
+      O que nossos professores dizem
+    </h2>
+  
+    <div class="depoimentos-grid">
+  
+      <div class="dep-card prof">
+        <p>“A proposta da plataforma é muito alinhada com o que a educação precisa hoje: ser mais acessível, prática e direta.
+            Como educadora, poder participar disso e acompanhar a evolução dos alunos é extremamente gratificante.”</p>
+        <div class="dep-user">
+          <img src="https://i.pravatar.cc/100?img=12">
+          <div>
+            <b>Tiago Oliveira</b>
+            <span>Prof. Web</span>
+          </div>
+        </div>
+      </div>
+  
+      <div class="dep-card prof">
+        <p>“Muitos alunos chegam com dificuldades básicas e insegurança.
+            Poder contribuir com conteúdos e orientar dentro da plataforma ajuda muito nesse processo.
+            É um suporte que realmente faz diferença no desenvolvimento deles.”</p>
+        <div class="dep-user">
+          <img src="https://i.pravatar.cc/100?img=13">
+          <div>
+            <b>André Guimarães</b>
+            <span>Prof. Logística</span>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  </section>
+  <!-- PROFISSIONAIS DO MERCADO -->
+<section class="professores">
+
+  <h2 class="titulo-depoimentos">
+    Experiência além da sala de aula
+  </h2>
+
+  <div class="depoimentos-grid">
+
+    <div class="dep-card prof">
+      <p>
+        “No dia a dia da logística, tudo gira em torno de organização, tempo e tomada de decisão.
+        É importante eles terem uma noção dessa área do lado de fora, entendendo como funciona no mercado real.”
+      </p>
+
+      <div class="dep-user">
+        <img src="https://i.pravatar.cc/100?img=20">
+        <div>
+          <b>Ricardo Almeida</b>
+          <span>Analista de Logística</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="dep-card prof">
+      <p>
+        “No mercado de tecnologia, não basta só teoria.
+        É importante eles terem uma noção dessa área do lado de fora, vendo projetos reais e desafios do dia a dia.”
+      </p>
+
+      <div class="dep-user">
+        <img src="https://i.pravatar.cc/100?img=21">
+        <div>
+          <b>Marina Costa</b>
+          <span>Desenvolvedora Front-end</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</section>
 
 <!-- STATS -->
 <div class="stats">
